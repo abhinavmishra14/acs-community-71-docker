@@ -1,0 +1,37 @@
+<alfresco-config>
+   <config evaluator="string-compare" condition="Users" replace="true">
+      <users>
+         <!-- minimum length for username and password -->
+         <username-min-length>2</username-min-length>
+         <password-min-length>3</password-min-length>
+         <show-authorization-status>false</show-authorization-status>
+      </users>
+      <!-- This enables/disables the Add External Users Panel on the Add Users page. -->
+      <enable-external-users-panel>false</enable-external-users-panel>
+   </config>
+   
+   <config evaluator="string-compare" condition="CSRFPolicy" replace="true">
+        <filter/>
+    </config>
+	
+
+   <config evaluator="string-compare" condition="IFramePolicy" replace="true">
+      <cross-domain>
+         <url>*</url>
+      </cross-domain>
+   </config>
+   
+   <!-- Turn off header that stops Share from being displayed in iframes on pages from other domains -->
+   <config evaluator="string-compare" condition="SecurityHeadersPolicy" replace="true">
+      <headers>
+         <header>
+           <name>X-Frame-Options</name>
+           <enabled>false</enabled>
+         </header>
+		 <!--<header>
+            <name>Content-Security-Policy</name>
+            <value>frame-ancestors https://*.force.com https://*.visualforce.com https://*.salesforce.com</value>
+         </header>-->
+     </headers>
+   </config>
+</alfresco-config>   
